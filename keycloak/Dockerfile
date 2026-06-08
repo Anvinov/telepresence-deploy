@@ -9,4 +9,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
-CMD ["start","--import-realm"]
+CMD ["start-dev","--import-realm"]
