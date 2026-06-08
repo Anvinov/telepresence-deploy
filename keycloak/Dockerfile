@@ -5,7 +5,7 @@ COPY realm-export.json /opt/keycloak/data/import/
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 
-EXPOSE 8080
+EXPOSE 10005
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
