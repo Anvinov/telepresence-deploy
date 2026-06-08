@@ -30,7 +30,7 @@ public class KeycloakConfig {
     @Bean
     public Keycloak keycloak() {
         return KeycloakBuilder.builder()
-                .serverUrl("http://localhost:8085")
+                .serverUrl("https://tu-keycloak.onrender.com/realms/synexis")
                 .realm("synexis")
                 .clientId("telepresence")
                 .clientSecret("wO8qciPyigPvlYPQAX3wzft18wa1lqv6")
