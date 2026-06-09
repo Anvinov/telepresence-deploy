@@ -30,7 +30,7 @@ public class KeycloakConfig {
     @Bean
     public Keycloak keycloak() {
         return KeycloakBuilder.builder()
-                .serverUrl("https://telepresence-deploykeycloak.onrender.com:8085")
+                .serverUrl("https://telepresence-deploykeycloak.onrender.com")
                 .realm("synexis")
                 .clientId("telepresence")
                 .clientSecret("wO8qciPyigPvlYPQAX3wzft18wa1lqv6")
