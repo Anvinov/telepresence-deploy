@@ -1,14 +1,18 @@
-FROM eclipse-temurin:21-jdk-alpine AS builder
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
+
 WORKDIR /app
-COPY mvnw .
-COPY .mvn .mvn
+
 COPY pom.xml .
-RUN ./mvnw dependency:go-offline -q
 COPY src ./src
-RUN ./mvnw package -DskipTests -q
+
+RUN mvn package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
+
 WORKDIR /app
+
 COPY --from=builder /app/target/*.jar app.jar
+
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+ENTRYPOINT ["java","-Dserver.port=${PORT:-8081}","-jar","app.jar"]
