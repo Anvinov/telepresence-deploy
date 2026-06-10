@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-    private static final String KEYCLOAK_URL = "http://localhost:8085";
+    private static final String KEYCLOAK_URL = "https://telepresence-deploykeycloak.onrender.com";
     private static final String REALM = "synexis";
     private static final String CLIENT_ID = "telepresence";
     private static final String CLIENT_SECRET = "wO8qciPyigPvlYPQAX3wzft18wa1lqv6";
