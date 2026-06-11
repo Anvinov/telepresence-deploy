@@ -10,7 +10,7 @@ public record UserProfileResponse(
         String status,
         String language,
         String role,
-        String picDirectory,
+        Boolean hasProfilePicture,
         Double averageRating,
         Integer ratingCount,
         String availabilityStatus,

@@ -7,7 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Lob;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import java.time.Instant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.Setter;
 /**
  * Fields shared with the logical {@code User} table in SQLBD.sql (name, email,
  * password_hash,
- * status, language, created_at, terms_accepted, rol, picDirectory). Embedded in
+ * status, language, created_at, terms_accepted, rol). Embedded in
  * {@link Client}
  * and {@link Partner} physical tables for this service.
  */
@@ -62,13 +63,9 @@ public abstract class UserBase {
     @Column(name = "user_role", nullable = false, length = 20)
     private UserRole role;
 
-    /** Same as logical {@code User.picDirectory}. */
-    @Column(name = "pic_directory", length = 255)
-    private String picDirectory;
-
-    /** Profile picture stored as binary in DB to ensure persistence across ephemeral filesystems. */
-    @Lob
-    @Column(name = "profile_picture")
+    /** Profile picture stored as binary in DB using PostgreSQL BYTEA. */
+    @JdbcTypeCode(SqlTypes.BINARY)
+    @Column(name = "profile_picture", columnDefinition = "bytea")
     private byte[] profilePicture;
 
     @Column(name = "profile_picture_content_type", length = 100)
