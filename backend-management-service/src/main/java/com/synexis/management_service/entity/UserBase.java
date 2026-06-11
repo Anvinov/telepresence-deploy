@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Lob;
 import java.time.Instant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -64,4 +65,12 @@ public abstract class UserBase {
     /** Same as logical {@code User.picDirectory}. */
     @Column(name = "pic_directory", length = 255)
     private String picDirectory;
+
+    /** Profile picture stored as binary in DB to ensure persistence across ephemeral filesystems. */
+    @Lob
+    @Column(name = "profile_picture")
+    private byte[] profilePicture;
+
+    @Column(name = "profile_picture_content_type", length = 100)
+    private String profilePictureContentType;
 }

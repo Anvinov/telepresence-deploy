@@ -6,5 +6,9 @@ public interface UserProfileService {
 
     UserProfileResponse getMyProfile(String keycloakId);
     
+    void saveProfilePicture(String keycloakId, byte[] content, String contentType);
+
+    com.synexis.management_service.dto.ProfilePictureDto getProfilePicture(String keycloakId);
+    
 
 }

@@ -5,6 +5,7 @@ import com.synexis.management_service.dto.response.usersProfile.UserProfileRespo
 import com.synexis.management_service.entity.Client;
 import com.synexis.management_service.entity.Partner;
 import com.synexis.management_service.exception.ResourceNotFoundException;
+import com.synexis.management_service.dto.ProfilePictureDto;
 import com.synexis.management_service.repository.ClientRepository;
 import com.synexis.management_service.repository.PartnerRepository;
 import com.synexis.management_service.service.UserProfileService;
@@ -88,4 +89,57 @@ public class UserProfileServiceImpl implements UserProfileService {
                 "User not found with keycloakId: " + keycloakId
         );
     }
+
+        @Override
+        public void saveProfilePicture(String keycloakId, byte[] content, String contentType) {
+
+                Optional<Client> clientOpt = clientRepository.findByKeycloakId(keycloakId);
+
+                if (clientOpt.isPresent()) {
+                        Client client = clientOpt.get();
+                        client.setProfilePicture(content);
+                        client.setProfilePictureContentType(contentType);
+                        clientRepository.save(client);
+                        return;
+                }
+
+                Optional<Partner> partnerOpt = partnerRepository.findByKeycloakId(keycloakId);
+
+                if (partnerOpt.isPresent()) {
+                        Partner partner = partnerOpt.get();
+                        partner.setProfilePicture(content);
+                        partner.setProfilePictureContentType(contentType);
+                        partnerRepository.save(partner);
+                        return;
+                }
+
+                throw new ResourceNotFoundException("User not found with keycloakId: " + keycloakId);
+        }
+
+        @Override
+        public ProfilePictureDto getProfilePicture(String keycloakId) {
+                Optional<Client> clientOpt = clientRepository.findByKeycloakId(keycloakId);
+
+                if (clientOpt.isPresent()) {
+                        Client client = clientOpt.get();
+                        byte[] data = client.getProfilePicture();
+                        if (data != null && data.length > 0) {
+                                return new ProfilePictureDto(data, client.getProfilePictureContentType());
+                        }
+                        return null;
+                }
+
+                Optional<Partner> partnerOpt = partnerRepository.findByKeycloakId(keycloakId);
+
+                if (partnerOpt.isPresent()) {
+                        Partner partner = partnerOpt.get();
+                        byte[] data = partner.getProfilePicture();
+                        if (data != null && data.length > 0) {
+                                return new ProfilePictureDto(data, partner.getProfilePictureContentType());
+                        }
+                        return null;
+                }
+
+                throw new ResourceNotFoundException("User not found with keycloakId: " + keycloakId);
+        }
 }
