@@ -3,10 +3,10 @@ spring:
     name: management-service
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/tourpresence
     driver-class-name: org.postgresql.Driver
+    username: synexis
+    password: synexis123
 
   sql:
     init:
@@ -26,7 +26,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI}
+          issuer-uri: http://localhost:8085/realms/synexis
 
   servlet:
     multipart:
@@ -39,7 +39,7 @@ spring:
       write-empty-json-arrays: true
 
 server:
-  port: ${PORT:8081}
+  port: 8080
 
 keycloak:
   realm: synexis

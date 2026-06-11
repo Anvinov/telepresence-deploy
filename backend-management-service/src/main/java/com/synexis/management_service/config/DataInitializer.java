@@ -138,60 +138,60 @@ public class DataInitializer implements ApplicationRunner {
             return;
         }
 
-        LocalDateTime now = LocalDateTime.now();
+        // LocalDateTime now = LocalDateTime.now();
 
-        // COMPLETED
-        seedService(ana, carlos, "Puente del Humilladero, Popayán", 2, ServiceStatus.COMPLETED, 3.4264, -76.5102,
-                now.minusDays(10), now.minusDays(10).plusHours(1), now.minusDays(10).plusHours(1),
-                now.minusDays(10).plusHours(3),
-                "https://upload.wikimedia.org/wikipedia/commons/f/fc/Puente_del_Humilladero%2C_Popay%C3%A1n_01.jpg");
+        // // COMPLETED
+        // seedService(ana, carlos, "Puente del Humilladero, Popayán", 2, ServiceStatus.COMPLETED, 3.4264, -76.5102,
+        //         now.minusDays(10), now.minusDays(10).plusHours(1), now.minusDays(10).plusHours(1),
+        //         now.minusDays(10).plusHours(3),
+        //         "https://upload.wikimedia.org/wikipedia/commons/f/fc/Puente_del_Humilladero%2C_Popay%C3%A1n_01.jpg");
 
-        // CANCELLED
-        seedService(luis, carlos, "Cristo Rey, Cali", 3, ServiceStatus.COMPLETED, 6.2105, -75.5677,
-                now.minusDays(5), now.minusDays(5).plusHours(1), now.minusDays(5).plusHours(2),
-                now.minusDays(5).plusHours(5),
-                "https://upload.wikimedia.org/wikipedia/commons/5/5b/Cristo_Rey%2C_Cali.JPG");
+        // // CANCELLED
+        // seedService(luis, carlos, "Cristo Rey, Cali", 3, ServiceStatus.COMPLETED, 6.2105, -75.5677,
+        //         now.minusDays(5), now.minusDays(5).plusHours(1), now.minusDays(5).plusHours(2),
+        //         now.minusDays(5).plusHours(5),
+        //         "https://upload.wikimedia.org/wikipedia/commons/5/5b/Cristo_Rey%2C_Cali.JPG");
 
-        seedService(john, laura, "Comuna 13, Medellín", 1, ServiceStatus.CANCELLED, 6.2518, -75.5636,
-                LocalDateTime.of(now.getYear(), 5, 5, 9, 0), LocalDateTime.of(now.getYear(), 5, 5, 10, 0),
-                LocalDateTime.of(now.getYear(), 5, 5, 11, 0), LocalDateTime.of(now.getYear(), 5, 5, 13, 0),
-                "https://upload.wikimedia.org/wikipedia/commons/0/00/Ball_court_-_Comuna_13_-_Medell%C3%ADn_-_Colombia_2024.jpg");
+        // seedService(john, laura, "Comuna 13, Medellín", 1, ServiceStatus.CANCELLED, 6.2518, -75.5636,
+        //         LocalDateTime.of(now.getYear(), 5, 5, 9, 0), LocalDateTime.of(now.getYear(), 5, 5, 10, 0),
+        //         LocalDateTime.of(now.getYear(), 5, 5, 11, 0), LocalDateTime.of(now.getYear(), 5, 5, 13, 0),
+        //         "https://upload.wikimedia.org/wikipedia/commons/0/00/Ball_court_-_Comuna_13_-_Medell%C3%ADn_-_Colombia_2024.jpg");
 
-        // ACCEPTED
-        seedService(ana, laura, "La Candelaria, Bogotá", 4, ServiceStatus.ACCEPTED, 4.5981, -74.0758,
-                LocalDateTime.of(now.getYear(), 5, 10, 8, 0), LocalDateTime.of(now.getYear(), 5, 10, 9, 0), null, null,
-                "https://upload.wikimedia.org/wikipedia/commons/d/d1/Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Candelaria%2C_Bogota.jpg");
+        // // ACCEPTED
+        // seedService(ana, laura, "La Candelaria, Bogotá", 4, ServiceStatus.ACCEPTED, 4.5981, -74.0758,
+        //         LocalDateTime.of(now.getYear(), 5, 10, 8, 0), LocalDateTime.of(now.getYear(), 5, 10, 9, 0), null, null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/d/d1/Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Candelaria%2C_Bogota.jpg");
 
-        seedService(ana, laura, "Wall Street, New York", 4, ServiceStatus.COMPLETED, 40.7069, -74.0112,
-                LocalDateTime.of(now.getYear(), 9, 10, 8, 0), LocalDateTime.of(now.getYear(), 9, 10, 9, 0),
-                LocalDateTime.of(now.getYear(), 9, 10, 9, 30), LocalDateTime.of(now.getYear(), 9, 10, 12, 30),
-                "https://upload.wikimedia.org/wikipedia/commons/9/92/New_York_Stock_Exchange_August_2017_02.jpg");
+        // seedService(ana, laura, "Wall Street, New York", 4, ServiceStatus.COMPLETED, 40.7069, -74.0112,
+        //         LocalDateTime.of(now.getYear(), 9, 10, 8, 0), LocalDateTime.of(now.getYear(), 9, 10, 9, 0),
+        //         LocalDateTime.of(now.getYear(), 9, 10, 9, 30), LocalDateTime.of(now.getYear(), 9, 10, 12, 30),
+        //         "https://upload.wikimedia.org/wikipedia/commons/9/92/New_York_Stock_Exchange_August_2017_02.jpg");
 
-        // ACTIVE SERVICES
-        seedService(ana, laura, "Museo Nacional, Bogotá", 4, ServiceStatus.ACCEPTED, 4.5987, -74.0750,
-                LocalDateTime.of(now.getYear(), 5, 10, 8, 0), LocalDateTime.of(now.getYear(), 5, 10, 9, 0), null, null,
-                "https://upload.wikimedia.org/wikipedia/commons/0/0e/Museo_Nacional_%28Bogot%C3%A1%29_45.jpg");
+        // // ACTIVE SERVICES
+        // seedService(ana, laura, "Museo Nacional, Bogotá", 4, ServiceStatus.ACCEPTED, 4.5987, -74.0750,
+        //         LocalDateTime.of(now.getYear(), 5, 10, 8, 0), LocalDateTime.of(now.getYear(), 5, 10, 9, 0), null, null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/0/0e/Museo_Nacional_%28Bogot%C3%A1%29_45.jpg");
 
-        seedService(john, carlos, "Museo Botero, Bogotá", 2, ServiceStatus.WAITING_FOR_START, 4.5983, -74.0721,
-                now.minusHours(2), now.minusHours(1), null, null,
-                "https://upload.wikimedia.org/wikipedia/commons/9/9f/Museo_Botero_-_9_-_Bogot%C3%A1.jpg");
+        // seedService(john, carlos, "Museo Botero, Bogotá", 2, ServiceStatus.WAITING_FOR_START, 4.5983, -74.0721,
+        //         now.minusHours(2), now.minusHours(1), null, null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/9/9f/Museo_Botero_-_9_-_Bogot%C3%A1.jpg");
 
-        seedService(luis, laura, "Jardín Botánico, Medellín", 3, ServiceStatus.READY, 6.2450, -75.5792,
-                now.minusHours(1), now.minusMinutes(30), now.minusMinutes(15), null,
-                "https://upload.wikimedia.org/wikipedia/commons/2/2a/Jardin_Botanico_de_Medellin-Edificio_Cientifico-Interior2.JPG");
+        // seedService(luis, laura, "Jardín Botánico, Medellín", 3, ServiceStatus.READY, 6.2450, -75.5792,
+        //         now.minusHours(1), now.minusMinutes(30), now.minusMinutes(15), null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/2/2a/Jardin_Botanico_de_Medellin-Edificio_Cientifico-Interior2.JPG");
 
-        seedService(ana, carlos, "Cerro de Monserrate, Bogotá", 3, ServiceStatus.IN_PROGRESS, 4.6097, -74.0570,
-                now.minusHours(1), now.minusMinutes(45), now.minusMinutes(30), null,
-                "https://upload.wikimedia.org/wikipedia/commons/4/4a/Bogota%2C_viewed_from_Monserrate_%285620507403%29.jpg");
+        // seedService(ana, carlos, "Cerro de Monserrate, Bogotá", 3, ServiceStatus.IN_PROGRESS, 4.6097, -74.0570,
+        //         now.minusHours(1), now.minusMinutes(45), now.minusMinutes(30), null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/4/4a/Bogota%2C_viewed_from_Monserrate_%285620507403%29.jpg");
 
-        seedService(luis, carlos, "Museo del Oro, Bogotá", 2, ServiceStatus.ACCEPTED, 4.5980, -74.0695,
-                now.minusHours(3), now.minusHours(2), null, null,
-                "https://upload.wikimedia.org/wikipedia/commons/b/bc/Exposici%C3%B3n_La_Sacerdotisa_de_Chornancap%2C_Per%C3%BA%2C_en_el_Museo_del_Oro_del_Banco_de_la_Rep%C3%BAblica_de_Bogot%C3%A1_-_50833016151.jpg");
+        // seedService(luis, carlos, "Museo del Oro, Bogotá", 2, ServiceStatus.ACCEPTED, 4.5980, -74.0695,
+        //         now.minusHours(3), now.minusHours(2), null, null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/b/bc/Exposici%C3%B3n_La_Sacerdotisa_de_Chornancap%2C_Per%C3%BA%2C_en_el_Museo_del_Oro_del_Banco_de_la_Rep%C3%BAblica_de_Bogot%C3%A1_-_50833016151.jpg");
 
-        seedService(john, laura, "Plaza de Bolívar, Bogotá", 2, ServiceStatus.WAITING_FOR_START, 4.5983, -74.0750,
-                now.minusHours(4), now.minusHours(3), null, null,
-                "https://upload.wikimedia.org/wikipedia/commons/e/e5/Plaza_de_Bol%C3%ADvar_en_Bogot%C3%A1_%28Colombia%29.jpg");
-        log.info("Services seeded.");
+        // seedService(john, laura, "Plaza de Bolívar, Bogotá", 2, ServiceStatus.WAITING_FOR_START, 4.5983, -74.0750,
+        //         now.minusHours(4), now.minusHours(3), null, null,
+        //         "https://upload.wikimedia.org/wikipedia/commons/e/e5/Plaza_de_Bol%C3%ADvar_en_Bogot%C3%A1_%28Colombia%29.jpg");
+        // log.info("Services seeded.");
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)

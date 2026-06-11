@@ -1,8 +1,6 @@
 package com.synexis.management_service.service.impl;
 
 import com.synexis.management_service.client.NominatimClient;
-import com.synexis.management_service.dto.response.usersProfile.ClientProfileResponse;
-import com.synexis.management_service.dto.response.usersProfile.PartnerProfileResponse;
 import com.synexis.management_service.dto.response.usersProfile.UserProfileResponse;
 import com.synexis.management_service.entity.Client;
 import com.synexis.management_service.entity.Partner;
@@ -44,18 +42,19 @@ public class UserProfileServiceImpl implements UserProfileService {
 
             Client client = clientOpt.get();
 
-            ClientProfileResponse profile =
-                    new ClientProfileResponse(
-                            client.getName(),
-                            client.getEmail(),
-                            client.getLanguage().name(),
-                            client.getPicDirectory(),
-                            client.getCreatedAt()
-                    );
-
             return new UserProfileResponse(
+                    client.getId(),
+                    client.getName(),
+                    client.getEmail(),
+                    client.getStatus().name(),
+                    client.getLanguage().name(),
                     client.getRole().name(),
-                    profile
+                    client.getPicDirectory(),
+                    null,
+                    null,
+                    null,
+                    null,
+                    client.getCreatedAt()
             );
         }
 
@@ -66,25 +65,22 @@ public class UserProfileServiceImpl implements UserProfileService {
 
             Partner partner = partnerOpt.get();
 
-            PartnerProfileResponse profile =
-                    new PartnerProfileResponse(
-                            partner.getName(),
-                            partner.getEmail(),
-                            partner.getLanguage().name(),
-                            partner.getPicDirectory(),
-                            partner.getAverageRating(),
-                            partner.getRatingCount(),
-                            partner.getAvailabilityStatus().name(),
-                            partner.getCreatedAt(),
-                            nominatimClient.getCityFromCoordinates(
-                                    partner.getLocation().getX(),
-                                    partner.getLocation().getY()
-                            )
-                    );
-                    
             return new UserProfileResponse(
+                    partner.getId(),
+                    partner.getName(),
+                    partner.getEmail(),
+                    partner.getStatus().name(),
+                    partner.getLanguage().name(),
                     partner.getRole().name(),
-                    profile
+                    partner.getPicDirectory(),
+                    partner.getAverageRating(),
+                    partner.getRatingCount(),
+                    partner.getAvailabilityStatus().name(),
+                    nominatimClient.getCityFromCoordinates(
+                            partner.getLocation().getX(),
+                            partner.getLocation().getY()
+                    ),
+                    partner.getCreatedAt()
             );
         }
 
