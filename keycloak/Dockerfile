@@ -1,8 +1,11 @@
 FROM quay.io/keycloak/keycloak:26.2.5 AS builder
 
 ENV KC_DB=postgres
+# Desactivamos métricas y salud desde el build para ahorrar memoria
+ENV KC_METRICS_ENABLED=false
+ENV KC_HEALTH_ENABLED=false
 
-# Compila el servidor optimizándolo para PostgreSQL
+# Compila el servidor optimizándolo con las características apagadas
 RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:26.2.5
@@ -15,5 +18,5 @@ COPY realm-export.json /opt/keycloak/data/import/
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
-# Forzamos a Keycloak a usar el modo de desarrollo de caché (local-only)
+# Mantenemos el arranque optimizado e importación del realm
 CMD ["start", "--optimized", "--import-realm", "--cache=local"]
