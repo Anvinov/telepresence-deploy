@@ -15,5 +15,5 @@ COPY realm-export.json /opt/keycloak/data/import/
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
-# Agregamos --optimized y removemos --db=postgres del comando de ejecución
-CMD ["start", "--optimized", "--import-realm"]
+# Forzamos a Keycloak a usar el modo de desarrollo de caché (local-only)
+CMD ["start", "--optimized", "--import-realm", "--cache=local"]
