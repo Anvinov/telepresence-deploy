@@ -1,25 +1,25 @@
 # Synexis Deployment Repository
 
-Este repositorio contiene la solución de despliegue para una plataforma de servicios basada en Java y Spring Boot, con soporte de gestión, streaming y autenticación/autoría a través de Keycloak.
+Este repositorio contiene la soluciÃ³n de despliegue para una plataforma de servicios basada en Java y Spring Boot, con soporte de gestiÃ³n, streaming y autenticaciÃ³n/autorÃ­a a travÃ©s de Keycloak.
 
 ## Estructura del repositorio
 
 - `backend-management-service/`
-  - Servicio principal de gestión.
+  - Servicio principal de gestiÃ³n.
   - Basado en Spring Boot 4 y Java 21.
-  - Incluye autenticación OAuth2/Keycloak, JPA, Flyway, H2 y PostgreSQL.
-  - Expone API REST para operaciones de administración, usuarios, pagos y seguridad.
+  - Incluye autenticaciÃ³n OAuth2/Keycloak, JPA, Flyway, H2 y PostgreSQL.
+  - Expone API REST para operaciones de administraciÃ³n, usuarios, pagos y seguridad.
 
 - `streaming-service/`
-  - Servicio de transmisión en tiempo real.
+  - Servicio de transmisiÃ³n en tiempo real.
   - Basado en Spring Boot 4 y Java 21.
   - Incluye WebSocket, seguridad y JWT para transporte seguro de eventos.
 
 - `keycloak/`
-  - Configuración de Keycloak para autenticación y autorización.
-  - Incluye exportación de realm y Dockerfile para despliegue local.
+  - ConfiguraciÃ³n de Keycloak para autenticaciÃ³n y autorizaciÃ³n.
+  - Incluye exportaciÃ³n de realm y Dockerfile para despliegue local.
 
-## Tecnologías principales
+## TecnologÃ­as principales
 
 - Java 21
 - Spring Boot 4
@@ -30,7 +30,7 @@ Este repositorio contiene la solución de despliegue para una plataforma de servi
 - Keycloak
 - WebSocket
 - Flyway
-- H2 y PostgreSQL
+- PostgreSQL con extenciÃ³n PostGis
 - Lombok
 
 ## Requisitos previos
@@ -39,14 +39,14 @@ Este repositorio contiene la solución de despliegue para una plataforma de servi
 - Maven
 - Docker (para ejecutar `keycloak` y otros contenedores)
 
-## Cómo ejecutar
+## CÃ³mo ejecutar
 
-1. Levantar el servicio Keycloak (opcional según el despliegue):
+1. Levantar el servicio Keycloak (opcional segÃºn el despliegue):
    - `cd keycloak`
    - `docker build -t synexis-keycloak .`
-   - `docker run --name synexis-keycloak -p 8080:8080 synexis-keycloak`
+   - `docker run --name synexis-keycloak -p 8085:8080 synexis-keycloak`
 
-2. Ejecutar el backend de gestión:
+2. Ejecutar el backend de gestiÃ³n:
    - `cd backend-management-service`
    - `./mvnw spring-boot:run`
 
@@ -56,10 +56,10 @@ Este repositorio contiene la solución de despliegue para una plataforma de servi
 
 ## Notas
 
-- El backend de gestión está diseñado para integrarse con Keycloak y puede usar PostgreSQL en producción.
+- El backend de gestiÃ³n estÃ¡ diseÃ±ado para integrarse con Keycloak y puede usar PostgreSQL en producciÃ³n.
 - El servicio de streaming expone endpoints WebSocket para eventos en tiempo real.
-- Ajustar la configuración en `application.yaml` de cada módulo según el entorno.
+- Ajustar la configuraciÃ³n en `application.yaml` de cada mÃ³dulo segÃºn el entorno.
 
 ## Contacto
 
-Para más detalles o mejoras, revisar el código en cada servicio y actualizar los archivos de configuración según el entorno de despliegue.
+Para mÃ¡s detalles o mejoras, revisar el cÃ³digo en cada servicio y actualizar los archivos de configuraciÃ³n segÃºn el entorno de despliegue.
